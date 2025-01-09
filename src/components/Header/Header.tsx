@@ -1,9 +1,9 @@
+import { BASE_URL } from '../../constants/index';
 import { 
     HeaderWrapper, 
     LeftSection, 
     Logo, 
     BadgeBC, 
-    // Title, 
     Actions,
     TeamVisibleSection,
     SvgIcon 
@@ -17,30 +17,29 @@ import {
           <Logo>
             <button className="star-button">
               <SvgIcon>
-                <use href="/sprite.svg#icon-star" />
+                <use href={`${BASE_URL}sprite.svg#icon-star`} />
               </SvgIcon>
             </button>
-            <img className="logo-img" src="/airplane-icon.png" alt="Airplane Icon" />
+            <img className="logo-img" src={`${BASE_URL}airplane-icon.png`} alt="Airplane Icon" />
             <span>Travidux, LLC</span>
             <BadgeBC>BC</BadgeBC>
           </Logo>
           <TeamVisibleSection>
             <SvgIcon>
-              <use href="/sprite.svg#icon-team" />
+              <use href={`${BASE_URL}sprite.svg#icon-team`} />
             </SvgIcon>
            <span>Team Visible</span> 
             <SvgIcon>
-              <use href="/sprite.svg#icon-lock" />
+              <use href={`${BASE_URL}sprite.svg#icon-lock`} />
             </SvgIcon>
           </TeamVisibleSection>
         </LeftSection>
         
-        {/* <Title>March 2018</Title> */}
-        
+       
         <Actions>
           <button className="calendar-button">
             <SvgIcon>
-              <use href="/sprite.svg#icon-calendar" />
+            <use href={`${BASE_URL}sprite.svg#icon-calendar`} />
             </SvgIcon>
             <span className="share-button-text">Calendar</span>
           </button>

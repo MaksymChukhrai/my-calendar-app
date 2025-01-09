@@ -1,6 +1,7 @@
 // src\components\Filters\Filters.tsx
 
 import React, { useState } from 'react';
+import { BASE_URL } from '../../constants/index';
 import {
   FiltersWrapper,
   Navigation,
@@ -43,12 +44,12 @@ const Filters: React.FC<FiltersProps> = ({ currentMonth, onPreviousMonth, onNext
       <Navigation>
         <NavigationButton className="arrow-up" onClick={onPreviousMonth}>
           <svg width="24" height="24">
-            <use href="/sprite.svg#arrow-up" />
+          <use href={`${BASE_URL}sprite.svg#arrow-up`} />
           </svg>
         </NavigationButton>
         <NavigationButton className="arrow-down" onClick={onNextMonth}>
           <svg width="24" height="24">
-            <use href="/sprite.svg#arrow-up" />
+          <use href={`${BASE_URL}sprite.svg#arrow-up`} />
           </svg>
         </NavigationButton>
       </Navigation>
@@ -63,7 +64,7 @@ const Filters: React.FC<FiltersProps> = ({ currentMonth, onPreviousMonth, onNext
         />
         <SearchIcon onClick={handleSearch}>
           <svg width="30" height="30">
-            <use href="/sprite.svg#search-icon" />
+          <use href={`${BASE_URL}sprite.svg#search-icon`} />
           </svg>
         </SearchIcon>
       </SearchWrapper>
