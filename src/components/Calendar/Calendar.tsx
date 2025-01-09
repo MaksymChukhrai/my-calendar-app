@@ -17,6 +17,7 @@ const Calendar: React.FC = () => {
   const [holidays, setHolidays] = useState<Record<string, string[]>>({});
   const [currentDate, setCurrentDate] = useState(new Date());
   const [tasks, setTasks] = useState<TaskType[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchHolidays = async () => {
@@ -33,7 +34,7 @@ const Calendar: React.FC = () => {
 
         setHolidays(holidaysMap);
       } catch (error) {
-        console.error('Ошибка при загрузке праздников:', error);
+        console.error('Error loading holidays:', error);
       }
     };
 
@@ -44,9 +45,9 @@ const Calendar: React.FC = () => {
     const dateStr = date.toISOString().split('T')[0];
     const newTask: TaskType = {
       id: uuidv4(),
-      text: '',
-      date: dateStr, // Дата задачи привязывается к выбранному дню
-      order: tasks.filter((t) => t.date === dateStr).length, // Учитываются задачи для конкретного дня
+      text: 'New task',
+      date: dateStr,
+      order: tasks.filter((t) => t.date === dateStr).length,
     };
     setTasks([...tasks, newTask]);
   };
@@ -61,14 +62,17 @@ const Calendar: React.FC = () => {
     setTasks(tasks.filter(task => task.id !== taskId));
   };
 
-  // Добавленная функция handleSearch
   const handleSearch = (searchTerm: string) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) => ({
-        ...task,
-        hidden: !task.text.toLowerCase().includes(searchTerm.toLowerCase()),
-      }))
-    );
+    setSearchTerm(searchTerm.toLowerCase());
+  };
+
+  const getFilteredTasks = (date: string) => {
+    return tasks
+      .filter(task => 
+        task.date === date && 
+        (searchTerm === '' || task.text.toLowerCase().includes(searchTerm))
+      )
+      .sort((a, b) => a.order - b.order);
   };
 
   const generateDays = (month: number, year: number) => {
@@ -115,7 +119,7 @@ const Calendar: React.FC = () => {
         currentMonth={currentDate}
         onPreviousMonth={handlePreviousMonth}
         onNextMonth={handleNextMonth}
-        onSearch={handleSearch} // Передача функции handleSearch
+        onSearch={handleSearch}
       />
       <WeekDaysHeader>
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
@@ -129,6 +133,7 @@ const Calendar: React.FC = () => {
           const holidayDateString = holidayDate.toISOString().split('T')[0];
           const taskDateString = date.toISOString().split('T')[0];
           const dayHolidays = holidays[holidayDateString] || [];
+          const filteredTasks = getFilteredTasks(taskDateString);
 
           return (
             <CalendarDay 
@@ -145,17 +150,14 @@ const Calendar: React.FC = () => {
                 ))}
               </DayHeader>
               <TaskList>
-                {tasks
-                  .filter((task) => task.date === taskDateString && !task.hidden) // Фильтрация задач по дате и поиску
-                  .sort((a, b) => a.order - b.order)
-                  .map((task) => (
-                    <Task
-                      key={task.id}
-                      task={task}
-                      onUpdate={handleUpdateTask}
-                      onDelete={handleDeleteTask}
-                    />
-                  ))}
+                {filteredTasks.map((task) => (
+                  <Task
+                    key={task.id}
+                    task={task}
+                    onUpdate={handleUpdateTask}
+                    onDelete={handleDeleteTask}
+                  />
+                ))}
               </TaskList>
             </CalendarDay>
           );
