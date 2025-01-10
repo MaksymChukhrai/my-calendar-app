@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// src/components/Task/Task.tsx
+import React, { useState, useEffect } from 'react';
 import { Task as TaskType } from '../../types/task';
 import { TaskWrapper, TaskText, TaskInput, DeleteButton } from './Task.styles';
 
@@ -10,46 +11,55 @@ interface TaskProps {
 
 const Task: React.FC<TaskProps> = ({ task, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(task.text === 'New task');
-  const [text, setText] = useState(task.text || 'New task');
+  const [text, setText] = useState(task.text);
+  const [isNewTask, setIsNewTask] = useState(task.text === 'New task');
 
-  // Функция обработки изменения текста в поле ввода
+  useEffect(() => {
+    if (isNewTask && isEditing) {
+      setText('');
+      setIsNewTask(false);
+    }
+  }, [isEditing, isNewTask]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newText = e.target.value;
     setText(newText);
-    console.log('Current input text:', newText);  // Логируем текущий текст
   };
 
-  const handleDoubleClick = () => {
+  const handleDoubleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsEditing(true);
-    if (text === 'New task') {
-      setText('');  // Если текст "Новая задача", заменим на пустую строку
-    }
   };
 
-  const handleBlur = () => {
-    setIsEditing(false);
-    if (text.trim()) {
-      onUpdate(task.id, text);
-    } else {
-      onDelete(task.id); // Удаляем задачу, если текст пустой
-    }
+  const handleBlur = (e: React.FocusEvent) => {
+    e.stopPropagation();
+    finishEditing();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    e.stopPropagation();
     if (e.key === 'Enter') {
-      setIsEditing(false);
-      if (text.trim()) {
-        onUpdate(task.id, text);
-      } else {
-        onDelete(task.id);
-      }
+      finishEditing();
     }
     if (e.key === 'Escape') {
-      setIsEditing(false);
-      setText(task.text); // Восстановить исходный текст
-      if (text.trim() === '') {
+      if (isNewTask) {
         onDelete(task.id);
+      } else {
+        setText(task.text);
+        setIsEditing(false);
       }
+    }
+  };
+
+  const finishEditing = () => {
+    setIsEditing(false);
+    const trimmedText = text.trim();
+    if (trimmedText) {
+      onUpdate(task.id, trimmedText);
+    } else if (isNewTask) {
+      onDelete(task.id);
+    } else {
+      setText(task.text);
     }
   };
 
@@ -63,7 +73,7 @@ const Task: React.FC<TaskProps> = ({ task, onUpdate, onDelete }) => {
       {isEditing ? (
         <TaskInput
           value={text}
-          onChange={handleChange}  // Используем обработчик с логированием
+          onChange={handleChange}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
           autoFocus
