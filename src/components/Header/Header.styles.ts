@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -14,10 +14,10 @@ export const LeftSection = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-    .title-text{
-        font-weight: bold;
-        font-size: 20px;
-        }
+  .title-text {
+    font-weight: bold;
+    font-size: 20px;
+  }
 `;
 
 export const Logo = styled.div`
@@ -31,15 +31,15 @@ export const Logo = styled.div`
     padding: 0;
     display: flex;
     align-items: center;
-    
+
     &:hover {
       opacity: 0.8;
     }
   }
 
-    .logo-img {
-        margin-left: 15px;
-    }
+  .logo-img {
+    margin-left: 15px;
+  }
 `;
 
 export const TeamVisibleSection = styled.div`
@@ -88,22 +88,21 @@ export const Actions = styled.div`
     &:hover {
       background: #f0f0f0;
     }
-      .points{
+    .points {
       transform: translateY(-3px);
-      }
+    }
   }
 
   .calendar-button {
     background: #e28805;
     color: white;
   }
-    .share-button {
-        background: unset;
+  .share-button {
+    background: unset;
     border-radius: 3px;
     color: white;
-
-    }
-        .share-button-text {
-        text-decoration: underline;
-    }
+  }
+  .share-button-text {
+    text-decoration: underline;
+  }
 `;

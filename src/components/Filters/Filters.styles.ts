@@ -1,12 +1,10 @@
-// Filters.styles.ts
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const FiltersWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 8px 16px;
   background: #edeff1;
-
 `;
 
 export const Navigation = styled.div`
@@ -16,32 +14,32 @@ export const Navigation = styled.div`
 
 export const NavigationButton = styled.button`
   padding: 0px 15px;
-  border: 1px solid #DFE1E6;
+  border: 1px solid #dfe1e6;
   border-radius: 4px;
   background: #e3e5e6;
   color: #929496;
   cursor: pointer;
   transition: all 0.2s ease;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   &:hover {
     background: #c6cacd;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-1px);
   }
-     &:active {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  &:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transform: translateY(1px);
-     }
-        &:disabled {
-         background: #f5f5f5;
+  }
+  &:disabled {
+    background: #f5f5f5;
     box-shadow: none;
     cursor: not-allowed;
     transform: none;
-        }
+  }
 
   &.arrow-up > svg {
-    margin-top: 12px; 
+    margin-top: 12px;
     fill: #929496;
   }
 
@@ -52,53 +50,51 @@ export const NavigationButton = styled.button`
   }
 `;
 
-
 export const Title = styled.h2`
   margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px;
-    font-weight: 900;
-    line-height: 1.5;
-    text-shadow: 0 0 1px currentColor;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.5;
+  text-shadow: 0 0 1px currentColor;
   color: #2d3539;
 `;
 export const TogglePeriod = styled.div`
-    display: flex;
-    gap: 8px;
-    `;
+  display: flex;
+  gap: 8px;
+`;
 
 export const ViewToggle = styled.button`
-padding: 10px 20px;
-    border: 1px solid #DFE1E6;
-    border-radius: 4px;
-    background: #e3e5e6;
-    
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    line-height: 1.5;
-    text-shadow: 0 0 1px currentColor;
-    color: #2d3539;
+  padding: 10px 20px;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+  background: #e3e5e6;
 
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-shadow: 0 0 1px currentColor;
+  color: #2d3539;
 
   &:hover {
     background: #c6cacd;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-1px);
   }
-     &:active {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  &:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transform: translateY(1px);
-     }
-        &:disabled {
-         background: #f5f5f5;
+  }
+  &:disabled {
+    background: #f5f5f5;
     box-shadow: none;
     cursor: not-allowed;
     transform: none;
-        }
+  }
 `;
 
 export const SearchWrapper = styled.div`
@@ -106,7 +102,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   margin: 0.5rem 0;
   position: relative;
-      margin-right: 100px;
+  margin-right: 100px;
 `;
 export const SearchInput = styled.input`
   flex: 1;

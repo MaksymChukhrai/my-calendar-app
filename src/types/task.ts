@@ -1,6 +1,5 @@
-// src/types/task.ts
-import { DropResult, DraggableLocation } from '@hello-pangea/dnd';
-// Базовый интерфейс задачи
+import { DropResult, DraggableLocation } from "@hello-pangea/dnd";
+// Basic task interface
 export interface Task {
   id: string;
   text: string;
@@ -9,7 +8,7 @@ export interface Task {
   hidden?: boolean;
 }
 
-// Типы для праздников
+// Types for holidays
 export interface Holiday {
   date: string;
   localName: string;
@@ -19,20 +18,20 @@ export interface HolidaysMap {
   [key: string]: string[];
 }
 
-// Тип для дня календаря
+// Type for calendar day
 export interface CalendarDay {
   date: Date;
   isCurrentMonth: boolean;
 }
 
-// Пропсы для компонента Task
+// Props for the Task component
 export interface TaskProps {
   task: Task;
   onUpdate: (id: string, newText: string) => void;
   onDelete: (id: string) => void;
 }
 
-// Пропсы для компонента Filters
+// Props for the Filters component
 export interface FiltersProps {
   currentMonth: Date;
   onPreviousMonth: () => void;
@@ -40,7 +39,7 @@ export interface FiltersProps {
   onSearch: (searchTerm: string) => void;
 }
 
-// Результат операции drag and drop
+// Result of drag and drop operation
 export interface DragResult {
   draggableId: string;
   type: string;

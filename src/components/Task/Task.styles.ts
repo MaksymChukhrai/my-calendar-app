@@ -1,5 +1,4 @@
-// src/components/Task/Task.styles.ts
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const DeleteButton = styled.button`
   position: absolute;
@@ -8,7 +7,7 @@ export const DeleteButton = styled.button`
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #6B778C;
+  color: #6b778c;
   font-size: 18px;
   cursor: pointer;
   padding: 0 4px;
@@ -38,23 +37,23 @@ export const TaskWrapper = styled.div`
 
 export const TaskText = styled.div`
   font-size: 14px;
-  color: #172B4D;
+  color: #172b4d;
   word-break: break-word;
   padding-right: 24px; // Место для кнопки удаления
 `;
 
 export const TaskInput = styled.input`
   width: 100%;
-  border: 1px solid #DFE1E6;
+  border: 1px solid #dfe1e6;
   border-radius: 3px;
   outline: none;
   font-size: 14px;
   padding: 4px 8px;
   background: white;
-  color: #172B4D;
+  color: #172b4d;
 
   &:focus {
     border-color: #fc8702;
-    box-shadow: 0 0 0 2px rgba(0,82,204,0.2);
+    box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
   }
 `;

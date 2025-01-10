@@ -1,7 +1,6 @@
-// src/components/Task/Task.tsx
-import React, { useState, useEffect } from 'react';
-import { Task as TaskType } from '../../types/task';
-import { TaskWrapper, TaskText, TaskInput, DeleteButton } from './Task.styles';
+import React, { useState, useEffect } from "react";
+import { Task as TaskType } from "../../types/task";
+import { TaskWrapper, TaskText, TaskInput, DeleteButton } from "./Task.styles";
 
 interface TaskProps {
   task: TaskType;
@@ -10,13 +9,13 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ task, onUpdate, onDelete }) => {
-  const [isEditing, setIsEditing] = useState(task.text === 'New task');
+  const [isEditing, setIsEditing] = useState(task.text === "New task");
   const [text, setText] = useState(task.text);
-  const [isNewTask, setIsNewTask] = useState(task.text === 'New task');
+  const [isNewTask, setIsNewTask] = useState(task.text === "New task");
 
   useEffect(() => {
     if (isNewTask && isEditing) {
-      setText('');
+      setText("");
       setIsNewTask(false);
     }
   }, [isEditing, isNewTask]);
@@ -38,10 +37,10 @@ const Task: React.FC<TaskProps> = ({ task, onUpdate, onDelete }) => {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     e.stopPropagation();
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       finishEditing();
     }
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       if (isNewTask) {
         onDelete(task.id);
       } else {
@@ -90,4 +89,3 @@ const Task: React.FC<TaskProps> = ({ task, onUpdate, onDelete }) => {
 };
 
 export default Task;
-

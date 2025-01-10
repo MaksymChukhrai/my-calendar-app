@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 export const CalendarContainer = styled.div`
   background-color: #edeff1;
 `;
@@ -13,22 +13,22 @@ export const CalendarGrid = styled.div`
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   padding: 16px;
-background-color: #edeff1;
+  background-color: #edeff1;
 `;
 
 export const CalendarDay = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 120px;
-  border: 1px solid #DFE1E6;
+  border: 1px solid #dfe1e6;
   background-color: #e3e5e6;
   padding: 8px;
   border-radius: 3px;
   cursor: pointer;
   position: relative;
-  
+
   &:hover {
-    background-color: #FAFBFC;
+    background-color: #fafbfc;
   }
 
   /* Стиль для дней не текущего месяца */
@@ -39,7 +39,7 @@ export const CalendarDay = styled.div`
 
   /* Стиль для текущего дня */
   &.current-day {
-    border: 2px solid #0052CC;
+    border: 2px solid #0052cc;
   }
 `;
 
@@ -49,27 +49,34 @@ export const DayHeader = styled.div`
   align-items: center;
   margin-bottom: 8px;
 
-  
   .day-number {
     font-weight: 500;
-    color: #172B4D;
+    color: #172b4d;
     font-size: 14px;
   }
-  
+  .day-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cards-count {
+    color: #6b778c; // менее контрастный цвет
+    font-size: 12px;
+  }
   .holiday {
-    color: #FF5630;
+    color: #ff5630;
     font-size: 12px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-    .holiday-name {
-  font-size: 0.8rem;
-  color: red;
-  display: block;
-  margin-top: 2px;
-  margin-left: 10px;
-}
+  .holiday-name {
+    font-size: 0.8rem;
+    color: red;
+    display: block;
+    margin-top: 2px;
+    margin-left: 10px;
+  }
 `;
 
 export const TaskList = styled.div`
@@ -85,11 +92,11 @@ export const TaskList = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: #F4F5F7;
+    background: #f4f5f7;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #DFE1E6;
+    background: #dfe1e6;
     border-radius: 2px;
   }
 `;
@@ -100,8 +107,8 @@ export const WeekDaysHeader = styled.div`
   gap: 8px;
   padding: 0 16px;
   margin-bottom: 8px;
-background-color: #edeff1;
-  
+  background-color: #edeff1;
+
   div {
     text-align: center;
     font-weight: 500;
@@ -111,19 +118,19 @@ background-color: #edeff1;
   }
 `;
 
-// Стили для задач (понадобятся позже)
+// Styles for tasks 
 export const Task = styled.div`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 3px;
   padding: 8px;
   font-size: 14px;
-  color: #172B4D;
+  color: #172b4d;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   margin-bottom: 4px;
   cursor: grab;
-  
+
   &:hover {
-    background-color: #EBECF0;
+    background-color: #ebecf0;
   }
 
   &:active {
@@ -131,12 +138,12 @@ export const Task = styled.div`
   }
 `;
 
-// Стили для праздников
+// Styles for holidays
 export const Holiday = styled.div`
   font-size: 12px;
-  color: #FF5630;
+  color: #ff5630;
   padding: 2px 4px;
-  background-color: #FFEBE6;
+  background-color: #ffebe6;
   border-radius: 3px;
   margin-bottom: 4px;
   white-space: nowrap;
@@ -144,7 +151,7 @@ export const Holiday = styled.div`
   text-overflow: ellipsis;
 `;
 
-// Стили для кнопок навигации по месяцам (если понадобятся)
+// Styles for navigation buttons by month 
 export const NavigationButtons = styled.div`
   display: flex;
   gap: 16px;
@@ -153,14 +160,14 @@ export const NavigationButtons = styled.div`
 
   button {
     padding: 8px 16px;
-    border: 1px solid #DFE1E6;
+    border: 1px solid #dfe1e6;
     border-radius: 3px;
-    background-color: #FFFFFF;
-    color:rgb(76, 93, 121);
+    background-color: #ffffff;
+    color: rgb(76, 93, 121);
     cursor: pointer;
 
     &:hover {
-      background-color: #FAFBFC;
+      background-color: #fafbfc;
     }
   }
 `;
