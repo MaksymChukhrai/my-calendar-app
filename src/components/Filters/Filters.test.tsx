@@ -1,47 +1,34 @@
-// src/components/Filters/Filters.test.tsx
-import { render, screen, fireEvent } from '@testing-library/react';
-import Filters from './Filters';
-import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from "@testing-library/react";
+import Filters from "./Filters";
 
-describe('Filters Component', () => {
+describe("Filters Component", () => {
   const mockProps = {
-    currentMonth: new Date(2024, 0, 1), // January 2024
+    currentMonth: new Date("2025-01-01"), // Пример текущей даты
     onPreviousMonth: jest.fn(),
     onNextMonth: jest.fn(),
     onSearch: jest.fn(),
   };
 
-  beforeEach(() => {
-    jest.clearAllMocks();
+  it("renders navigation buttons and current month", () => {
+    render(<Filters {...mockProps} />);
+    expect(screen.getByLabelText("Previous Month")).toBeInTheDocument();
+    expect(screen.getByLabelText("Next Month")).toBeInTheDocument();
+    expect(screen.getByText(/January 2025/i)).toBeInTheDocument();
   });
 
-  // Тестируем корректное отображение месяца и года
-  test('displays correct month and year', () => {
+  it("handles month navigation correctly", () => {
     render(<Filters {...mockProps} />);
-    expect(screen.getByText('January 2024')).toBeInTheDocument();
-  });
-
-  // Тестируем навигацию по месяцам
-  test('handles month navigation correctly', () => {
-    render(<Filters {...mockProps} />);
-    
-    // Клик по кнопке предыдущего месяца
-    fireEvent.click(screen.getByRole('button', { name: /previous/i }));
+    fireEvent.click(screen.getByLabelText("Previous Month"));
     expect(mockProps.onPreviousMonth).toHaveBeenCalledTimes(1);
-    
-    // Клик по кнопке следующего месяца
-    fireEvent.click(screen.getByRole('button', { name: /next/i }));
+
+    fireEvent.click(screen.getByLabelText("Next Month"));
     expect(mockProps.onNextMonth).toHaveBeenCalledTimes(1);
   });
 
-  // Тестируем поиск
-  test('handles search input correctly', () => {
+  it("filters tasks using the search input", () => {
     render(<Filters {...mockProps} />);
-    
-    const searchInput = screen.getByPlaceholderText('...search task');
-    fireEvent.change(searchInput, { target: { value: 'test task' } });
-    
-    // Проверяем, что коллбэк поиска вызван с правильным значением
-    expect(mockProps.onSearch).toHaveBeenCalledWith('test task');
+    const searchInput = screen.getByPlaceholderText("...search task");
+    fireEvent.change(searchInput, { target: { value: "Task" } });
+    expect(mockProps.onSearch).toHaveBeenCalledWith("Task");
   });
 });

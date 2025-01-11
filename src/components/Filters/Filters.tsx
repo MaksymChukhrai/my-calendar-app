@@ -47,12 +47,20 @@ const Filters: React.FC<FiltersProps> = ({
   return (
     <FiltersWrapper>
       <Navigation>
-        <NavigationButton className="arrow-up" onClick={onPreviousMonth}>
+        <NavigationButton 
+        className="arrow-up" 
+        onClick={onPreviousMonth}
+        aria-label="Previous Month"
+        >
           <svg width="24" height="24">
             <use href={`${BASE_URL}sprite.svg#arrow-up`} />
           </svg>
         </NavigationButton>
-        <NavigationButton className="arrow-down" onClick={onNextMonth}>
+        <NavigationButton 
+        className="arrow-down" 
+        onClick={onNextMonth}
+        aria-label="Next Month"
+        >
           <svg width="24" height="24">
             <use href={`${BASE_URL}sprite.svg#arrow-up`} />
           </svg>

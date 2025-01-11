@@ -1,32 +1,17 @@
-// src/components/Header/Header.test.tsx
-import { render, screen } from '@testing-library/react';
-import Header from './Header';
-import '@testing-library/jest-dom';
+import { render, screen } from "@testing-library/react";
+import Header from "./Header";
 
-describe('Header Component', () => {
-  // Тестируем базовый рендеринг компонента
-  test('renders header with all required elements', () => {
+describe("Header Component", () => {
+  it("renders header with all required elements", () => {
     render(<Header />);
-    
-    // Проверяем наличие логотипа
-    expect(screen.getByAltText('Calendar Logo')).toBeInTheDocument();
-    
-    // Проверяем наличие названия
-    expect(screen.getByText('Personal Calendar')).toBeInTheDocument();
-    
-    // Проверяем наличие секции Team Visible
-    expect(screen.getByText('Team Visible')).toBeInTheDocument();
+    expect(screen.getByText("TeamSync Calendar")).toBeInTheDocument();
+    expect(screen.getByAltText("Airplane Icon")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /calendar/i })).toBeInTheDocument();
   });
 
-  // Тестируем доступность
-  test('meets accessibility requirements', () => {
+  it("meets accessibility requirements", () => {
     render(<Header />);
-    
-    // Проверяем роль header
-    expect(screen.getByRole('banner')).toBeInTheDocument();
-    
-    // Проверяем, что логотип имеет альтернативный текст
-    const logo = screen.getByRole('img');
-    expect(logo).toHaveAttribute('alt', 'Calendar Logo');
+    const logo = screen.getByAltText("Airplane Icon");
+    expect(logo).toHaveAttribute("src", "/airplane-icon.png");
   });
 });

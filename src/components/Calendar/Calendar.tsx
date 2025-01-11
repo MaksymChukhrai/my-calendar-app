@@ -194,7 +194,7 @@ const Calendar: React.FC = () => {
             <div key={day}>{day}</div>
           ))}
         </WeekDaysHeader>
-        <CalendarGrid>
+        <CalendarGrid role="grid">
           {days.map(({ date, isCurrentMonth }, index) => {
             const dateString = date.toISOString().split("T")[0];
             const filteredTasks = getFilteredTasks(dateString);
@@ -206,6 +206,7 @@ const Calendar: React.FC = () => {
             return (
               <CalendarDay
                 key={index}
+                role="gridcell"
                 style={{ opacity: isCurrentMonth ? 1 : 0.5 }}
                 onClick={(e) => handleCreateTask(date, e)}
               >
