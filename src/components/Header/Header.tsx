@@ -20,6 +20,7 @@ const Header = () => {
               <use href={`${BASE_URL}sprite.svg#icon-star`} />
             </SvgIcon>
           </button>
+          <span>|</span>
           <img
             className="logo-img"
             src={`${BASE_URL}airplane-icon.png`}
@@ -33,6 +34,7 @@ const Header = () => {
             <use href={`${BASE_URL}sprite.svg#icon-team`} />
           </SvgIcon>
           <span>Team Visible</span>
+          <span>|</span>
           <SvgIcon>
             <use href={`${BASE_URL}sprite.svg#icon-lock`} />
           </SvgIcon>

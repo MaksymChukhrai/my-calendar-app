@@ -26,6 +26,10 @@ export const Logo = styled.div`
   gap: 8px;
   font-weight: 500;
 
+span:nth-child(2){
+    opacity: 0.2;
+    margin-left: 5px;
+}
   .star-button {
     color: white;
     padding: 0;
@@ -38,7 +42,7 @@ export const Logo = styled.div`
   }
 
   .logo-img {
-    margin-left: 15px;
+    margin-left: 0;
   }
 `;
 
@@ -48,6 +52,11 @@ export const TeamVisibleSection = styled.div`
   gap: 8px;
   font-weight: 500;
   font-size: 14px;
+
+  span:nth-child(3){
+    opacity: 0.2;
+    margin-left: 5px;
+    }
 `;
 
 export const SvgIcon = styled.svg`
