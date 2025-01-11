@@ -26,7 +26,7 @@ export const Logo = styled.div`
   gap: 8px;
   font-weight: 500;
 
-span:nth-child(2){
+span:nth-of-type(1) {
     opacity: 0.2;
     margin-left: 5px;
 }
@@ -53,7 +53,7 @@ export const TeamVisibleSection = styled.div`
   font-weight: 500;
   font-size: 14px;
 
-  span:nth-child(3){
+  span:nth-of-type(2) {
     opacity: 0.2;
     margin-left: 5px;
     }
