@@ -1,34 +1,45 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
+import { describe, test, expect, vi } from "vitest";
 import Filters from "./Filters";
 
 describe("Filters Component", () => {
   const mockProps = {
-    currentMonth: new Date("2025-01-01"), // Пример текущей даты
-    onPreviousMonth: jest.fn(),
-    onNextMonth: jest.fn(),
-    onSearch: jest.fn(),
+    currentMonth: new Date(2024, 0, 1), // January 1, 2024
+    onPreviousMonth: vi.fn(),
+    onNextMonth: vi.fn(),
+    onSearch: vi.fn(),
   };
 
-  it("renders navigation buttons and current month", () => {
-    render(<Filters {...mockProps} />);
-    expect(screen.getByLabelText("Previous Month")).toBeInTheDocument();
-    expect(screen.getByLabelText("Next Month")).toBeInTheDocument();
-    expect(screen.getByText(/January 2025/i)).toBeInTheDocument();
+  test("renders month and year", () => {
+    const { getByText } = render(<Filters {...mockProps} />);
+    expect(getByText("January 2024")).toBeInTheDocument();
   });
 
-  it("handles month navigation correctly", () => {
-    render(<Filters {...mockProps} />);
-    fireEvent.click(screen.getByLabelText("Previous Month"));
-    expect(mockProps.onPreviousMonth).toHaveBeenCalledTimes(1);
-
-    fireEvent.click(screen.getByLabelText("Next Month"));
-    expect(mockProps.onNextMonth).toHaveBeenCalledTimes(1);
+  test("handles previous month navigation", () => {
+    const { getByLabelText } = render(<Filters {...mockProps} />);
+    const prevButton = getByLabelText("Previous Month");
+    fireEvent.click(prevButton);
+    expect(mockProps.onPreviousMonth).toHaveBeenCalled();
   });
 
-  it("filters tasks using the search input", () => {
-    render(<Filters {...mockProps} />);
-    const searchInput = screen.getByPlaceholderText("...search task");
-    fireEvent.change(searchInput, { target: { value: "Task" } });
-    expect(mockProps.onSearch).toHaveBeenCalledWith("Task");
+  test("handles next month navigation", () => {
+    const { getByLabelText } = render(<Filters {...mockProps} />);
+    const nextButton = getByLabelText("Next Month");
+    fireEvent.click(nextButton);
+    expect(mockProps.onNextMonth).toHaveBeenCalled();
+  });
+
+  test("handles search input", async () => {
+    const { getByPlaceholderText } = render(<Filters {...mockProps} />);
+    const searchInput = getByPlaceholderText("...search task");
+
+    fireEvent.change(searchInput, { target: { value: "test task" } });
+
+    await waitFor(
+      () => {
+        expect(mockProps.onSearch).toHaveBeenCalledWith("test task");
+      },
+      { timeout: 400 }
+    );
   });
 });

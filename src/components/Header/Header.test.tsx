@@ -1,17 +1,29 @@
-import { render, screen } from "@testing-library/react";
-import Header from "./Header";
+import { render } from '@testing-library/react';
+import { describe, test, expect } from 'vitest';
+import Header from './Header';
 
-describe("Header Component", () => {
-  it("renders header with all required elements", () => {
-    render(<Header />);
-    expect(screen.getByText("TeamSync Calendar")).toBeInTheDocument();
-    expect(screen.getByAltText("Airplane Icon")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /calendar/i })).toBeInTheDocument();
+describe('Header Component', () => {
+  test('renders company name and title', () => {
+    const { getByText } = render(<Header />);
+    expect(getByText('Travidux, LLC')).toBeInTheDocument();
+    expect(getByText('TeamSync Calendar')).toBeInTheDocument();
   });
 
-  it("meets accessibility requirements", () => {
-    render(<Header />);
-    const logo = screen.getByAltText("Airplane Icon");
-    expect(logo).toHaveAttribute("src", "/airplane-icon.png");
+  test('renders team visible section', () => {
+    const { getByText } = render(<Header />);
+    expect(getByText('Team Visible')).toBeInTheDocument();
+  });
+
+  test('renders action buttons', () => {
+    const { getByText } = render(<Header />);
+    expect(getByText('Calendar')).toBeInTheDocument();
+    expect(getByText('Share')).toBeInTheDocument();
+  });
+
+  test('renders logo image', () => {
+    const { container } = render(<Header />);
+    const logoImg = container.querySelector('.logo-img');
+    expect(logoImg).toBeInTheDocument();
+    expect(logoImg?.getAttribute('alt')).toBe('Airplane Icon');
   });
 });

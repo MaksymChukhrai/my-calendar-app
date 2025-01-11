@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "types.d.ts", "vitest.config.ts"]
+  "include": ["src", "types.d.ts"]
 }
