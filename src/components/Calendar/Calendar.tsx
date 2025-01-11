@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { HolidaysService } from "../../services/holidaysApi";
 import {
   DragDropContext,
   Droppable,
@@ -27,23 +28,9 @@ const Calendar: React.FC = () => {
 
   useEffect(() => {
     const fetchHolidays = async () => {
-      try {
-        const year = currentDate.getFullYear();
-        const response = await fetch(
-          `https://date.nager.at/api/v3/PublicHolidays/${year}/UA`
-        );
-        const data = await response.json();
-
-        const holidaysMap: Record<string, string[]> = {};
-        data.forEach((holiday: { date: string; localName: string }) => {
-          holidaysMap[holiday.date] = holidaysMap[holiday.date] || [];
-          holidaysMap[holiday.date].push(holiday.localName);
-        });
-
-        setHolidays(holidaysMap);
-      } catch (error) {
-        console.error("Error loading holidays:", error);
-      }
+      const year = currentDate.getFullYear();
+      const holidaysMap = await HolidaysService.getHolidaysByYear(year);
+      setHolidays(holidaysMap);
     };
 
     fetchHolidays();
