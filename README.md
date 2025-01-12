@@ -3,16 +3,13 @@
 ## Overview
 This project is a test task for the position of Middle/Strong Junior JavaScript/TypeScript Full-Stack Developer. The main goal of the application is to showcase my skills and demonstrate the use of required technologies listed in the test task description and the job listing.
 
-___
-
 ## Features
 Interactive Calendar: Displays a monthly calendar with draggable tasks.
 UI Implementation: Layout was created to match the provided design sample.
 
 ### **Month Display**. 
 - By default, the current month is displayed.
-![Buttons](./public/buttons-uppdown.jpg) 
-- [Buttons](./public/buttons-uppdown.jpg)   allow navigation to the next or previous months, and all displayed months have active functionality.
+- ![Buttons](./public/buttons-uppdown.jpg)   allow navigation to the next or previous months, and all displayed months have active functionality.
 - Buttons for week and month views were added for layout purposes only. The default view is a 7x6 day calendar grid, corresponding to the active "month" button.
 
 ### **Task Management**:
@@ -27,8 +24,6 @@ UI Implementation: Layout was created to match the provided design sample.
 ### **Task Filtering**:
 - Includes a search field for filtering tasks. Matching tasks are displayed, while others are hidden.
 - Holiday names are fixed at the top of the calendar cells and are not included in task reordering.
-
-___
 
 ## Technologies Used
 This project demonstrates proficiency with the following technologies and tools:
@@ -60,11 +55,11 @@ This project demonstrates proficiency with the following technologies and tools:
 `npm install`
 4.	Start the development server:
 `npm run dev`
-Открой страницу браузера по адресу [http://localhost:5173/my-calendar-app](http://localhost:5173/my-calendar-app/)
+5. Open the browser page at [http://localhost:5173/my-calendar-app](http://localhost:5173/my-calendar-app/)
 
 ## Testing
 To run the tests, use the following command:
-npm run test
+`npm run test`
 
 ## Deployment
 The application is deployed and accessible at: [My Calendar App](https://maksymchukhrai.github.io/my-calendar-app/)
