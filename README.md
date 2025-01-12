@@ -9,8 +9,8 @@ UI Implementation: Layout was created to match the provided design sample.
 
 ### **Month Display**. 
 - By default, the current month is displayed.
-- Buttons ![Buttons](./public/buttons-uppdown.jpg)   allow navigation to the next or previous months, and all displayed months have active functionality.
-Buttons <img src="./public/buttons-uppdown.jpg" alt="Buttons" width="50" height="50">
+- Buttons <img src="./public/buttons-uppdown.jpg" alt="Buttons" width="77" height="29">   allow navigation to the next or previous months, and all displayed months have active functionality.
+
 - Buttons for week and month views were added for layout purposes only. The default view is a 7x6 day calendar grid, corresponding to the active "month" button.
 
 ### **Task Management**:
