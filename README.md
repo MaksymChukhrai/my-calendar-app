@@ -6,7 +6,7 @@ This project is a test task for the position of Middle/Strong Junior JavaScript/
 ## Features
 **Interactive Calendar:** Displays a monthly calendar with draggable tasks.
 
-**UI Implementation:** Layout was created to match the provided design sample.
+**UI Implementation:** Layout was created to match the provided design sample.Additionally, a task filtering field has been added.
 
 ### **Month Display**. 
 - By default, the current month is displayed.
