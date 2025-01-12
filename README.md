@@ -56,14 +56,14 @@ This project demonstrates proficiency with the following technologies and tools:
 `npm install`
 4.	Start the development server:
 `npm run dev`
-5. Open the browser page at [http://localhost:5173/my-calendar-app](http://localhost:5173/my-calendar-app/)
+5. Open the browser page at [http://localhost:5173/my-calendar-app](http://localhost:5173/my-calendar-app/){:target="_blank"}
 
 ## Testing
 To run the tests, use the following command:
 `npm run test`
 
 ## Deployment
-The application is deployed and accessible at: [My Calendar App](https://maksymchukhrai.github.io/my-calendar-app/)
+The application is deployed and accessible at: [My Calendar App](https://maksymchukhrai.github.io/my-calendar-app/){:target="_blank"}
 
 ## Contact
 Feel free to reach out for any questions or feedback:
