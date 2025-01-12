@@ -48,15 +48,15 @@ This project demonstrates proficiency with the following technologies and tools:
 ```
 my-calendar-app/  some important folders
 │
-├── public/                # Contains static files such as images, icons, SVG files
-│   ├── buttons-uppdown.jpg # Image used for the navigation buttons
-│   └── sprite.svg          # SVG files
+├── public/                   # Contains static files such as images, icons, SVG files
+│   ├── buttons-uppdown.jpg   # Image used for the navigation buttons
+│   └── sprite.svg            # SVG files
 │
-├── src/                   # Contains all source code files
-│   ├── components/         # Reusable components for the calendar app
+├── src/                       # Contains all source code files
+│   ├── components/            # Reusable components for the calendar app
 │       ├── component folders/ # tsx, styled, and test files for each component
-│   ├── App.tsx             # Main React component
-│   ├── index.tsx           # Entry point for the React app
+│   ├── App.tsx                # Main React component
+│   ├── index.tsx              # Entry point for the React app
 │   └── ...
 │   ├── services/          # API file for GET requests
 │
