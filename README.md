@@ -4,8 +4,9 @@
 This project is a test task for the position of Middle/Strong Junior JavaScript/TypeScript Full-Stack Developer. The main goal of the application is to showcase my skills and demonstrate the use of required technologies listed in the test task description and the job listing.
 
 ## Features
-Interactive Calendar: Displays a monthly calendar with draggable tasks.
-UI Implementation: Layout was created to match the provided design sample.
+**Interactive Calendar:** Displays a monthly calendar with draggable tasks.
+
+**UI Implementation:** Layout was created to match the provided design sample.
 
 ### **Month Display**. 
 - By default, the current month is displayed.
