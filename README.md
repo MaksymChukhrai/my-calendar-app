@@ -45,7 +45,25 @@ This project demonstrates proficiency with the following technologies and tools:
 - Git & GitHub: Version control and project collaboration.Project Structure
 
 ## Project Structure 
-Добавь фактическую структуру в компонентами проекта
+```
+my-calendar-app/
+│
+├── public/                # Contains static files such as images, icons, and the index.html file
+│   ├── buttons-uppdown.jpg # Image used for the navigation buttons
+│   └── sprite.svg          #
+│
+├── src/                   # Contains all source code files
+│   ├── components/         # Reusable components for the calendar app
+│   ├── styles/             # SCSS or CSS files for styling the app
+│   ├── App.tsx             # Main React component
+│   ├── index.tsx           # Entry point for the React app
+│   └── ...
+│
+├── .gitignore             # Specifies files and directories Git should ignore
+├── package.json           # Contains dependencies and scripts for the app
+├── README.md              # Project documentation
+└── tsconfig.json          # TypeScript configuration file
+```
 
 ## Installation
 1.	Clone the repository:
@@ -62,8 +80,7 @@ This project demonstrates proficiency with the following technologies and tools:
 To run the tests, use the following command: `npm run test`
 
 ## Deployment
-The application is deployed and accessible at: <a href="https://maksymchukhrai.github.io/my-calendar-app/" target="_blank">My Calendar App</a>
-
+The application is deployed and accessible at: <a href="https://maksymchukhrai.github.io/my-calendar-app/" target="_blank">My Calendar App live GH page</a>
 
 ## Contact
 Feel free to reach out for any questions or feedback:
