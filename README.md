@@ -18,6 +18,7 @@ This project is a test task for the position of Middle/Strong Junior JavaScript/
 - Inline creation and editing of tasks, with a maximum of 15 tasks per day.
 - Each day card includes a counter for the number of tasks.
 - Drag and drop tasks between calendar days or reorder tasks within the same day.
+- Empty 'New task' entries become inactive after filtering the entire month's task volume and must be deleted manually. This is implemented for convenient task array revision.
 
 ### **Holidays Display**:
 - Fetches and shows worldwide holidays for each day using an external API.
@@ -43,7 +44,7 @@ This project demonstrates proficiency with the following technologies and tools:
 ### Tools
 - Vite: Ensures fast development and build processes.
 - ESLint & Prettier: Maintain code quality and enforce consistent style.
-- Git & GitHub: Version control and project collaboration.Project Structure
+- Git & GitHub: Version control and project collaboration.
 
 ## Project Structure 
 ```
@@ -66,6 +67,31 @@ my-calendar-app/  some important folders
 ├── README.md              # Project documentation
 └── tsconfig.json          # TypeScript configuration file
 ```
+## Test Suite Overview
+The test suite covers four main components of the calendar application: Calendar, Filters, Header, and Task components. The suite focuses on ensuring core functionality, user interactions, and proper rendering of UI elements.
+
+### Calendar Tests
+- Validates calendar grid structure rendering
+- Verifies correct number of day cells (42 for complete month view)
+- Checks proper display of weekday headers (Sun-Sat)
+
+### Filters Tests
+- Ensures correct month and year display
+- Tests month navigation functionality (previous/next)
+- Validates search functionality with debouncing
+- Verifies proper task filtering based on search input
+
+### Header Tests
+- Confirms proper company branding display
+- Validates presence of team visibility section
+- Verifies navigation and action buttons
+- Checks logo rendering and attributes
+
+### Task Tests
+- Validates task creation and display
+- Tests inline editing functionality
+- Verifies task deletion mechanism
+- Ensures proper handling of new task input mode
 
 ## Installation
 1.	Clone the repository:
