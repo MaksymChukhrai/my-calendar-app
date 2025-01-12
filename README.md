@@ -46,18 +46,19 @@ This project demonstrates proficiency with the following technologies and tools:
 
 ## Project Structure 
 ```
-my-calendar-app/
+my-calendar-app/  some important folders
 │
-├── public/                # Contains static files such as images, icons, and the index.html file
+├── public/                # Contains static files such as images, icons, SVG files
 │   ├── buttons-uppdown.jpg # Image used for the navigation buttons
-│   └── sprite.svg          #
+│   └── sprite.svg          # SVG files
 │
 ├── src/                   # Contains all source code files
 │   ├── components/         # Reusable components for the calendar app
-│   ├── styles/             # SCSS or CSS files for styling the app
+│       ├── component folders/ # tsx, styled, and test files for each component
 │   ├── App.tsx             # Main React component
 │   ├── index.tsx           # Entry point for the React app
 │   └── ...
+│   ├── services/          # API file for GET requests
 │
 ├── .gitignore             # Specifies files and directories Git should ignore
 ├── package.json           # Contains dependencies and scripts for the app
