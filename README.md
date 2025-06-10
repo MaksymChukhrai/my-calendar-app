@@ -23,10 +23,18 @@ This project is a test task for the position of Middle/Strong Junior JavaScript/
 ### **Holidays Display**:
 - Fetches and shows worldwide holidays for each day using an external API.
 - In this project, holiday data is fetched for Ukraine.
+- Holiday information is retrieved from the [Nager.Date API] (https://date.nager.at/swagger/index.html), which provides comprehensive holiday data for various countries worldwide.
 
 ### **Task Filtering**:
 - Includes a search field for filtering tasks. Matching tasks are displayed, while others are hidden.
 - Holiday names are fixed at the top of the calendar cells and are not included in task reordering.
+
+### **Data Persistence**:
+- All tasks are automatically saved to the browser's localStorage, ensuring data persistence across browser sessions.
+- Tasks are loaded automatically when the application starts, restoring the previous state.
+- All task operations (create, edit, delete, reorder, drag-and-drop) are immediately synchronized with localStorage.
+- Error handling is implemented to gracefully manage localStorage access issues.
+- No server-side storage is required - all data is maintained locally in the user's browser.
 
 ## Technologies Used
 This project demonstrates proficiency with the following technologies and tools:
@@ -113,4 +121,4 @@ The application is deployed and accessible at: <a href="https://maksymchukhrai.g
 ## Contact
 Feel free to reach out for any questions or feedback:
 - Email: m.chukhrai.job@gmail.com
-- GitHub: [MaksymChukhrai](https://github.com/MaksymChukhrai)
+- My Portfolio App: [Maksym Chukhrai](https://www.mchukhrai.com)
