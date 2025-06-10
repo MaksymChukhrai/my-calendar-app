@@ -27,7 +27,7 @@ const Filters: React.FC<FiltersProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Добавляем debounce эффект для поиска
+ // Add debounce effect for search
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       onSearch(searchTerm);
